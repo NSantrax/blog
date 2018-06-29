@@ -4,7 +4,11 @@
 <p>Рад, что ты зашёл в болог РЫЖЕГО КОТА</p>
 <div> <img src="https://pp.userapi.com/c846416/v846416902/8417d/hDECZxfSCEM.jpg" alt="РЫЖАЯ КОШАЧЬЯ РОЖА" width="300" height="200"></div>
 
-    <% @posts.each do |post| %>
+<% if user_signed_in? %>
+  <%= link_to 'Добавить запись', new_post_path %> 
+<% end %> 
+
+    <% @posts.reverse.each do |post| %>
      
         <p><%= post.title %></p>
         <p><%= post.text %></p>
@@ -16,7 +20,5 @@
  
 <br>
 
-<% if user_signed_in? %>
-  <%= link_to 'Добавить запись', new_post_path %> 
-<% end %> 
+
 </tbody>
