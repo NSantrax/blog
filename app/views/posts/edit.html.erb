@@ -1,0 +1,29 @@
+<h1>Редактировать запись</h1>
+
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <div class="field">
+    <%= f.label "Название записи" %>
+    <%= f.text_field :title, id: :post_title %>
+    <%= f.label "Содержание записи" %>
+    <%= f.text_field :text, id: :post_text %>
+  </div>
+</p>
+
+  <div class="actions">
+    <%= f.submit 'Изменить' %>
+  </div>
+<% end %>
+
+<%= link_to 'Назад', posts_path %>
