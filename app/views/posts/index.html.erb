@@ -12,6 +12,7 @@
      
         <p><%= post.title %></p>
         <p><%= post.text %></p>
+       <%= image_tag(post.foto.url, alt: 'Foto') if post.foto? %>
         <% if user_signed_in? %>
           <p><%= link_to 'Редактировать', edit_post_path(post) %>
           <%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' } %></p>
